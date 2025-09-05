@@ -158,7 +158,7 @@ function importFromJsonFile(event) {
 // --------------------
 // Server Sync Simulation
 // --------------------
-async function fetchServerQuotes() {
+async function fetchQuotesFromServer() {
   try {
     const response = await fetch(SERVER_URL);
     const data = await response.json();
@@ -174,7 +174,7 @@ async function fetchServerQuotes() {
 }
 
 async function syncWithServer() {
-  const serverQuotes = await fetchServerQuotes();
+  const serverQuotes = await fetchQuotesFromServer();
   let hasConflict = false;
 
   serverQuotes.forEach(sq => {
