@@ -7,12 +7,17 @@
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
     #quoteDisplay { margin: 20px 0; font-size: 1.2rem; }
-    input { margin-right: 10px; margin-bottom: 10px; }
+    input, select { margin-right: 10px; margin-bottom: 10px; }
     button { cursor: pointer; margin-bottom: 10px; }
   </style>
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
+
+  <div>
+    <label for="categoryFilter">Filter by Category: </label>
+    <select id="categoryFilter"></select>
+  </div>
 
   <div id="quoteDisplay">Click "Show New Quote" to start!</div>
   <button id="newQuote">Show New Quote</button>
