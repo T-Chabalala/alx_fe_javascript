@@ -187,7 +187,7 @@ async function fetchQuotesFromServer() {
   }
 }
 
-async function syncWithServer() {
+async function syncQuotes() {
   const serverQuotes = await fetchQuotesFromServer();
   let hasConflict = false;
 
@@ -236,4 +236,4 @@ if (lastQuoteIndex !== null && quotes[lastQuoteIndex]) {
 }
 
 // Periodic server sync every 30 seconds
-setInterval(syncWithServer, 30000);
+setInterval(syncQuotes, 30000);
