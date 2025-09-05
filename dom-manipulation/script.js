@@ -75,9 +75,9 @@ function createAddQuoteForm() {
 }
 
 // --------------------
-// Add Quote
+// Add Quote with POST
 // --------------------
-function addQuote() {
+async function addQuote() {
   const text = document.getElementById('newQuoteText').value.trim();
   const category = document.getElementById('newQuoteCategory').value.trim();
 
@@ -92,8 +92,22 @@ function addQuote() {
     category,
   };
 
+  // Add locally
   quotes.push(newQuote);
   saveQuotes();
+
+  // Simulate sending to server via POST
+  try {
+    const response = await fetch(SERVER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newQuote)
+    });
+    const result = await response.json();
+    console.log('Server POST result:', result);
+  } catch (error) {
+    console.error('Error posting quote to server:', error);
+  }
 
   document.getElementById('newQuoteText').value = '';
   document.getElementById('newQuoteCategory').value = '';
